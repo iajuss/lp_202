@@ -85,7 +85,7 @@ export default function Home() {
           <img src={fragrances[4].image} alt="" />
           <p>Presença<br />intencional</p>
         </div>
-        <div className="hero-footer"><span>Role para descobrir</span><span>01 / 05</span></div>
+        <div className="hero-footer"><span>Role para descobrir</span></div>
       </section>
 
       <section className="manifesto" id="marca">
