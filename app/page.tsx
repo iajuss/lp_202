@@ -82,7 +82,7 @@ export default function Home() {
         <div className="hero-visual" aria-hidden="true">
           <span className="sun-disc" />
           <div className="bottle-halo" />
-          <img src="/images/ether-voyage.webp" alt="" />
+          <img src={fragrances[4].image} alt="" />
           <p>Presença<br />intencional</p>
         </div>
         <div className="hero-footer"><span>Role para descobrir</span><span>01 / 05</span></div>
