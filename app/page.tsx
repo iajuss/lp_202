@@ -105,7 +105,7 @@ export default function Home() {
       <section className="manifesto" id="marca">
         <div className="section-label">01 · A marca</div>
         <div className="manifesto-grid">
-          <h2>Uma ideia simples<br />e desconfortavelmente<br /><em>verdadeira.</em></h2>
+          <h2>Uma ideia simples<br /><span className="manifesto-middle">e desconfortavelmente</span><br /><em>verdadeira.</em></h2>
           <div className="manifesto-copy">
             <p className="large-copy">O perfume é a ponte entre o que os outros veem e o que você sente.</p>
             <p>Presença não é acaso. Quando você alinha o de dentro com o de fora, não veste um personagem: amplifica o que já é verdade.</p>
