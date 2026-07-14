@@ -18,6 +18,7 @@ test("keeps the AJA brand system in the landing page", async () => {
   assert.match(css, /Cormorant Garamond/);
   assert.match(css, /Tenor Sans/);
   assert.match(css, /--terra:#B5532A/);
+  assert.match(css, /\.quiz-section[^\n]*background:var\(--osso\)/);
   assert.doesNotMatch(css, /radial-gradient/);
 });
 
