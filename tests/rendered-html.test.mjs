@@ -21,12 +21,15 @@ test("keeps the AJA brand system in the landing page", async () => {
   assert.doesNotMatch(css, /radial-gradient/);
 });
 
-test("uses all three quiz inputs and communicates prototype limits", async () => {
+test("uses all quiz inputs and communicates prototype limits", async () => {
   const page = await readFile(new URL("app/page.tsx", root), "utf8");
 
   assert.match(page, /\$\{answers\.mood\}\|\$\{answers\.moment\}\|\$\{answers\.intensity\}/);
   assert.match(page, /firmeza\|dia\|discreta/);
   assert.match(page, /firmeza\|dia\|marcante/);
+  assert.match(page, /Que direção olfativa mais te chama/);
+  assert.match(page, /Kit confirmado/);
+  assert.match(page, /Qual das sete/);
   assert.match(page, /dados não são enviados nesta demonstração/);
   assert.match(page, /integração de envio será ativada antes do lançamento/);
 });

@@ -6,6 +6,7 @@ type Fragrance = {
   name: string;
   image: string;
   tone: string;
+  quizFamily: "fresh" | "floral" | "woody" | "amber";
   family: string;
   line: string;
   notes: string[];
@@ -19,14 +20,28 @@ type Recommendation = {
 };
 
 const fragrances: Fragrance[] = [
-  { name: "Royal Cypress", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/royal-cypress.webp`, tone: "cypress", family: "Amadeirado verde", line: "Verde profundo, estrutura e clareza.", notes: ["cipreste", "cedro", "vetiver"], occasion: "Reuniões, primeiros encontros e dias que pedem firmeza.", mood: "Presença que se sustenta sem elevar a voz." },
-  { name: "Soft Temptation", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/soft-temptation.webp`, tone: "temptation", family: "Âmbar gourmand", line: "Calor discreto que se aproxima devagar.", notes: ["ameixa", "baunilha", "madeira"], occasion: "Noites, encontros e conversas que merecem ficar.", mood: "Sedução sem personagem." },
-  { name: "Solar Breeze", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/solar-breeze.webp`, tone: "solar", family: "Cítrico solar", line: "Luz, pele e um começo sem esforço.", notes: ["bergamota", "neroli", "almíscar"], occasion: "Manhãs abertas, viagens e fins de semana ao sol.", mood: "Leveza que chega antes do sorriso." },
-  { name: "Velvet Bloom", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/velvet-bloom.webp`, tone: "velvet", family: "Floral aveludado", line: "Uma flor que não pede licença para existir.", notes: ["rosa", "pêssego", "sândalo"], occasion: "Almoços longos, celebrações e dias de se escolher.", mood: "Delicadeza com centro." },
-  { name: "Ether Voyage", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/ether-voyage.webp`, tone: "ether", family: "Âmbar especiado", line: "Profundidade dourada, feita para durar na memória.", notes: ["açafrão", "âmbar", "fava-tonca"], occasion: "Jantares, eventos e noites em que a chegada importa.", mood: "Um rastro que conta uma história inteira." },
-  { name: "Noir Azure", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/noir-azure.webp`, tone: "noir", family: "Aromático noturno", line: "Azul escuro, ar frio e precisão.", notes: ["lavanda", "incenso", "âmbar"], occasion: "Depois das 18h, cidade acesa e planos imprevistos.", mood: "Mistério claro, sem distância." },
-  { name: "Oceanis", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/oceanis.webp`, tone: "oceanis", family: "Aquático mineral", line: "Ar livre com uma borda de sal.", notes: ["algas", "limão", "madeira clara"], occasion: "Dias quentes, movimento e aquela vontade de ir mais longe.", mood: "Frescor que não desaparece." },
+  { name: "Royal Cypress", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/royal-cypress.webp`, tone: "cypress", quizFamily: "woody", family: "Amadeirado verde", line: "Verde profundo, estrutura e clareza.", notes: ["cipreste", "cedro", "vetiver"], occasion: "Reuniões, primeiros encontros e dias que pedem firmeza.", mood: "Presença que se sustenta sem elevar a voz." },
+  { name: "Soft Temptation", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/soft-temptation.webp`, tone: "temptation", quizFamily: "amber", family: "Âmbar gourmand", line: "Calor discreto que se aproxima devagar.", notes: ["ameixa", "baunilha", "madeira"], occasion: "Noites, encontros e conversas que merecem ficar.", mood: "Sedução sem personagem." },
+  { name: "Solar Breeze", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/solar-breeze.webp`, tone: "solar", quizFamily: "fresh", family: "Cítrico solar", line: "Luz, pele e um começo sem esforço.", notes: ["bergamota", "neroli", "almíscar"], occasion: "Manhãs abertas, viagens e fins de semana ao sol.", mood: "Leveza que chega antes do sorriso." },
+  { name: "Velvet Bloom", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/velvet-bloom.webp`, tone: "velvet", quizFamily: "floral", family: "Floral aveludado", line: "Uma flor que não pede licença para existir.", notes: ["rosa", "pêssego", "sândalo"], occasion: "Almoços longos, celebrações e dias de se escolher.", mood: "Delicadeza com centro." },
+  { name: "Ether Voyage", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/ether-voyage.webp`, tone: "ether", quizFamily: "amber", family: "Âmbar especiado", line: "Profundidade dourada, feita para durar na memória.", notes: ["açafrão", "âmbar", "fava-tonca"], occasion: "Jantares, eventos e noites em que a chegada importa.", mood: "Um rastro que conta uma história inteira." },
+  { name: "Noir Azure", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/noir-azure.webp`, tone: "noir", quizFamily: "woody", family: "Aromático noturno", line: "Azul escuro, ar frio e precisão.", notes: ["lavanda", "incenso", "âmbar"], occasion: "Depois das 18h, cidade acesa e planos imprevistos.", mood: "Mistério claro, sem distância." },
+  { name: "Oceanis", image: `${typeof window !== "undefined" && window.location.pathname.startsWith("/lp_202") ? "/lp_202" : ""}/images/oceanis.webp`, tone: "oceanis", quizFamily: "fresh", family: "Aquático mineral", line: "Ar livre com uma borda de sal.", notes: ["algas", "limão", "madeira clara"], occasion: "Dias quentes, movimento e aquela vontade de ir mais longe.", mood: "Frescor que não desaparece." },
 ];
+
+const kitStages = [
+  { title: "Kit confirmado", copy: "Você escolhe o kit de descoberta e inicia a sua jornada com os sete decants." },
+  { title: "Em preparação", copy: "A AJA separa as sete fragrâncias e os briefings que acompanham cada experiência." },
+  { title: "Em trânsito", copy: "O kit segue para você. A escolha começa quando as fragrâncias encontram a sua rotina." },
+  { title: "Escolha final", copy: "Depois de avaliar os sete, você indica a fragrância que ficou e segue para o frasco original." },
+];
+
+const quizSteps = [
+  { field: "mood", question: "Como você quer ser percebido agora?", options: [["firmeza", "Firmeza"], ["calor", "Calor"], ["mistério", "Mistério"], ["leveza", "Leveza"]] },
+  { field: "moment", question: "Em que momento essa presença importa mais?", options: [["dia", "Durante o dia"], ["noite", "Depois das 18h"]] },
+  { field: "intensity", question: "Que intensidade parece mais com você?", options: [["discreta", "Um rastro mais discreto"], ["marcante", "Uma assinatura marcante"]] },
+  { field: "family", question: "Que direção olfativa mais te chama?", options: [["fresh", "Fresca e luminosa"], ["floral", "Floral e aveludada"], ["woody", "Amadeirada e verde"], ["amber", "Âmbar e envolvente"]] },
+] as const;
 
 const recommendationMap: Record<string, Recommendation> = {
   "firmeza|dia|discreta": { name: "Royal Cypress", rationale: "Estrutura verde para uma presença firme, mas medida, ao longo do dia." },
@@ -50,25 +65,38 @@ const recommendationMap: Record<string, Recommendation> = {
 export default function Home() {
   const [active, setActive] = useState(0);
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState({ mood: "", moment: "", intensity: "" });
+  const [answers, setAnswers] = useState({ mood: "", moment: "", intensity: "", family: "" });
   const [quizContact, setQuizContact] = useState({ name: "", email: "", whatsapp: "", consent: false });
   const [feedbackSent, setFeedbackSent] = useState(false);
+  const [feedbackRating, setFeedbackRating] = useState(0);
+  const [feedbackOccasion, setFeedbackOccasion] = useState("");
   const [selectedFragrance, setSelectedFragrance] = useState("");
   const [isScentMenuOpen, setIsScentMenuOpen] = useState(false);
   const [feedbackError, setFeedbackError] = useState(false);
+  const [kitStage, setKitStage] = useState(0);
+  const [chosenBottle, setChosenBottle] = useState("");
   const current = fragrances[active];
-  const recommendation = useMemo(() => recommendationMap[`${answers.mood}|${answers.moment}|${answers.intensity}`], [answers]);
+  const recommendation = useMemo(() => {
+    const base = recommendationMap[`${answers.mood}|${answers.moment}|${answers.intensity}`];
+    if (!base) return undefined;
+    const familyMatch = fragrances.find((fragrance) => fragrance.name === base.name && fragrance.quizFamily === answers.family);
+    const adjusted = familyMatch ?? fragrances.find((fragrance) => fragrance.quizFamily === answers.family) ?? fragrances.find((fragrance) => fragrance.name === base.name);
+    if (!adjusted) return base;
+    return adjusted.name === base.name ? base : { name: adjusted.name, rationale: `Intenção, momento, intensidade e a sua afinidade por uma direção ${adjusted.family.toLowerCase()} apontam para esta escolha.` };
+  }, [answers]);
   const recommendedFragrance = useMemo(() => fragrances.find((fragrance) => fragrance.name === recommendation?.name), [recommendation]);
 
   function sendFeedback(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!selectedFragrance) {
+    if (!selectedFragrance || !feedbackRating) {
       setFeedbackError(true);
       return;
     }
     setFeedbackError(false);
     setFeedbackSent(true);
     event.currentTarget.reset();
+    setFeedbackRating(0);
+    setFeedbackOccasion("");
     setSelectedFragrance("");
   }
 
@@ -81,6 +109,7 @@ export default function Home() {
             <a href="#marca">A marca</a>
             <a href="#colecao">Coleção</a>
             <a href="#experiencia">Experiência AJA</a>
+            <a href="#meu-kit">Meu kit</a>
           </div>
           <a className="nav-cta" href="#quiz">Encontre o seu</a>
         </nav>
@@ -152,16 +181,24 @@ export default function Home() {
           <article><span>03</span><h3>Avalie</h3><p>Compare o que ficou na pele, o que combinou com seus dias e a presença que mais pareceu sua.</p></article>
           <article><span>04</span><h3>Escolha o frasco</h3><p>Ao final, conte qual das sete essências te encontrou e receba o frasco original da sua escolha.</p></article>
         </div>
-        <div className="experience-card"><div><p className="eyebrow">Seu kit de descoberta</p><h3>7 decants.<br />Você sente.<br /><em>Você escolhe o seu.</em></h3><p className="experience-card-copy">A experiência termina com o frasco original da fragrância que ficou em você.</p></div><a className="button button-terracotta" href="#kit">Conhecer o percurso <span>↘</span></a></div>
-        <div className="kit-intent" id="kit"><p className="eyebrow">Como o kit será aberto</p><p>Na versão de lançamento, esta etapa reunirá a escolha do kit, pagamento, envio dos sete decants e o acompanhamento até a escolha do frasco original.</p><a className="text-link" href="#quiz">Começar pela minha direção <span>↓</span></a></div>
+        <div className="experience-card"><div><p className="eyebrow">Seu kit de descoberta</p><h3>7 decants.<br />Você sente.<br /><em>Você escolhe o seu.</em></h3><p className="experience-card-copy">A experiência termina com o frasco original da fragrância que ficou em você.</p></div><a className="button button-terracotta" href="#meu-kit">Ver meu kit <span>↘</span></a></div>
+      </section>
+
+      <section className="kit-dashboard" id="meu-kit">
+        <div className="kit-heading"><div><p className="eyebrow">03.1 · Meu kit</p><h2>Uma escolha que<br />ganha <em>história.</em></h2></div><p>Um esboço da jornada que acompanhará o cliente do kit de descoberta ao frasco original. As etapas abaixo são uma visão de interface: pagamento, entrega e dados reais entram com o backend.</p></div>
+        <div className="kit-progress" aria-label="Etapas da experiência do kit">{kitStages.map((stage, index) => <button type="button" className={index <= kitStage ? "active" : ""} aria-pressed={index === kitStage} key={stage.title} onClick={() => setKitStage(index)}><span>0{index + 1}</span><strong>{stage.title}</strong></button>)}</div>
+        <div className="kit-stage-copy"><p className="eyebrow">Etapa {kitStage + 1} de {kitStages.length}</p><h3>{kitStages[kitStage].title}</h3><p>{kitStages[kitStage].copy}</p></div>
+        <div className="kit-fragrances"><div><p className="eyebrow">Seus 7 decants</p><h3>Briefing, contexto e<br /><em>percepção.</em></h3></div><p>Durante a experiência, cada fragrância ganha uma leitura própria — e cada avaliação ajuda a tornar a escolha mais consciente.</p></div>
+        <div className="kit-grid">{fragrances.map((fragrance, index) => <article key={fragrance.name}><img src={fragrance.image} alt={`Frasco ${fragrance.name}`} /><div><span>0{index + 1} · {fragrance.family}</span><h3>{fragrance.name}</h3><p>{fragrance.occasion}</p><div><a href="#colecao" onClick={() => setActive(index)}>Ver briefing <b>↘</b></a><a href="#feedback" onClick={() => setSelectedFragrance(fragrance.name)}>Avaliar <b>↘</b></a></div></div></article>)}</div>
+        <div className="bottle-choice"><div><p className="eyebrow">Depois de sentir</p><h3>Qual das sete<br />ficou <em>em você?</em></h3><p>Quando a experiência estiver integrada, esta é a escolha que direcionará o frasco original.</p></div><div className="bottle-options" aria-label="Escolha do frasco original">{fragrances.map((fragrance) => <button type="button" className={chosenBottle === fragrance.name ? "selected" : ""} aria-pressed={chosenBottle === fragrance.name} key={fragrance.name} onClick={() => setChosenBottle(fragrance.name)}>{fragrance.name}<span>↘</span></button>)}{chosenBottle && <p>Você escolheu <strong>{chosenBottle}</strong> como seu frasco original.</p>}</div></div>
       </section>
 
       <section className="quiz-section" id="quiz">
         <div className="quiz-copy"><p className="eyebrow">04 · Curadoria pessoal</p><h2>Qual presença<br />você quer <em>deixar?</em></h2><p>Conte o que procura. Nós cruzamos intenção, ocasião e intensidade para indicar uma primeira direção - e, se quiser, desenhar a continuação dessa conversa.</p></div>
         <div className="quiz-card">
-          {step < 3 && <><div className="quiz-progress"><span>0{step + 1} / 03</span><i style={{ width: `${(step + 1) * 33.33}%` }} /></div><p className="quiz-question">{step === 0 ? "Como você quer ser percebido agora?" : step === 1 ? "Em que momento essa presença importa mais?" : "Que intensidade parece mais com você?"}</p><div className="answer-grid">{(step === 0 ? [["firmeza", "Firmeza"], ["calor", "Calor"], ["mistério", "Mistério"], ["leveza", "Leveza"]] : step === 1 ? [["dia", "Durante o dia"], ["noite", "Depois das 18h"]] : [["discreta", "Um rastro mais discreto"], ["marcante", "Uma assinatura marcante"]]).map(([value, label]) => <button type="button" key={value} onClick={() => { const field = step === 0 ? "mood" : step === 1 ? "moment" : "intensity"; setAnswers((last) => ({ ...last, [field]: value })); setStep((last) => last + 1); }}>{label}<span>↗</span></button>)}</div></>}
-          {step === 3 && <form className="quiz-contact" onSubmit={(event) => { event.preventDefault(); setStep(4); }}><div className="quiz-progress"><span>Seu contato é opcional</span><i style={{ width: "100%" }} /></div><p className="quiz-question">Quer uma curadoria<br />que continue <em>depois daqui?</em></p><p>Deixe seus dados se quiser que a AJA entre em contato com uma seleção mais pessoal, baseada nas suas respostas.</p><div className="quiz-contact-fields"><input value={quizContact.name} onChange={(event) => setQuizContact((last) => ({ ...last, name: event.target.value }))} placeholder="Seu nome" /><input value={quizContact.email} onChange={(event) => setQuizContact((last) => ({ ...last, email: event.target.value }))} type="email" placeholder="Seu e-mail" required={quizContact.consent} /><input value={quizContact.whatsapp} onChange={(event) => setQuizContact((last) => ({ ...last, whatsapp: event.target.value }))} placeholder="WhatsApp (opcional)" /></div><label className="quiz-consent"><input type="checkbox" checked={quizContact.consent} onChange={(event) => setQuizContact((last) => ({ ...last, consent: event.target.checked }))} /> <span>Quero receber uma curadoria da AJA com base nas minhas respostas.</span></label><p className="prototype-note">Protótipo de fluxo: estes dados não são enviados nesta demonstração.</p><button className="button button-dark" type="submit">Ver minha direção <span>↗</span></button></form>}
-          {step === 4 && recommendation && <div className="quiz-result"><p className="eyebrow">Sua primeira direção</p><img src={recommendedFragrance?.image} alt="" /><h3>{recommendation.name}</h3><p>{recommendation.rationale}</p>{quizContact.consent && <p className="quiz-followup">Seu interesse em continuar a conversa foi marcado nesta demonstração. A integração com a curadoria será ativada antes do lançamento.</p>}<button type="button" className="text-link" onClick={() => { setStep(0); setAnswers({ mood: "", moment: "", intensity: "" }); setQuizContact({ name: "", email: "", whatsapp: "", consent: false }); }}>Refazer a escolha ↺</button></div>}
+          {step < quizSteps.length && <><div className="quiz-progress"><span>0{step + 1} / 0{quizSteps.length}</span><i style={{ width: `${((step + 1) / quizSteps.length) * 100}%` }} /></div><p className="quiz-question">{quizSteps[step].question}</p><div className="answer-grid">{quizSteps[step].options.map(([value, label]) => <button type="button" key={value} onClick={() => { setAnswers((last) => ({ ...last, [quizSteps[step].field]: value })); setStep((last) => last + 1); }}>{label}<span>↗</span></button>)}</div></>}
+          {step === quizSteps.length && <form className="quiz-contact" onSubmit={(event) => { event.preventDefault(); setStep(quizSteps.length + 1); }}><div className="quiz-progress"><span>Seu contato é opcional</span><i style={{ width: "100%" }} /></div><p className="quiz-question">Quer uma curadoria<br />que continue <em>depois daqui?</em></p><p>Deixe seus dados se quiser que a AJA entre em contato com uma seleção mais pessoal, baseada nas suas respostas.</p><div className="quiz-contact-fields"><input value={quizContact.name} onChange={(event) => setQuizContact((last) => ({ ...last, name: event.target.value }))} placeholder="Seu nome" /><input value={quizContact.email} onChange={(event) => setQuizContact((last) => ({ ...last, email: event.target.value }))} type="email" placeholder="Seu e-mail" required={quizContact.consent} /><input value={quizContact.whatsapp} onChange={(event) => setQuizContact((last) => ({ ...last, whatsapp: event.target.value }))} placeholder="WhatsApp (opcional)" /></div><label className="quiz-consent"><input type="checkbox" checked={quizContact.consent} onChange={(event) => setQuizContact((last) => ({ ...last, consent: event.target.checked }))} /> <span>Quero receber uma curadoria da AJA com base nas minhas respostas.</span></label><p className="prototype-note">Protótipo de fluxo: estes dados não são enviados nesta demonstração.</p><button className="button button-dark" type="submit">Ver minha direção <span>↗</span></button></form>}
+          {step === quizSteps.length + 1 && recommendation && <div className="quiz-result"><p className="eyebrow">Sua primeira direção</p><img src={recommendedFragrance?.image} alt="" /><h3>{recommendation.name}</h3><p>{recommendation.rationale}</p>{quizContact.consent && <p className="quiz-followup">Seu interesse em continuar a conversa foi marcado nesta demonstração. A integração com a curadoria será ativada antes do lançamento.</p>}<button type="button" className="text-link" onClick={() => { setStep(0); setAnswers({ mood: "", moment: "", intensity: "", family: "" }); setQuizContact({ name: "", email: "", whatsapp: "", consent: false }); }}>Refazer a escolha ↺</button></div>}
         </div>
       </section>
 
@@ -172,8 +209,10 @@ export default function Home() {
             <span className="field-label">Qual fragrância te acompanhou?</span>
             <button className={`scent-select ${isScentMenuOpen ? "is-open" : ""}`} type="button" aria-haspopup="listbox" aria-expanded={isScentMenuOpen} aria-label="Escolha uma essência" onClick={() => setIsScentMenuOpen((open) => !open)}>{selectedFragrance || "Escolha uma essência"}<span>⌄</span></button>
             {isScentMenuOpen && <div className="scent-options" role="listbox" aria-label="Fragrâncias AJA">{fragrances.map((item) => <button role="option" aria-selected={selectedFragrance === item.name} type="button" key={item.name} onClick={() => { setSelectedFragrance(item.name); setIsScentMenuOpen(false); setFeedbackError(false); }}>{item.name}<small>{item.family}</small></button>)}</div>}
-            {feedbackError && <p className="field-error">Escolha a essência que te acompanhou.</p>}
+            {feedbackError && <p className="field-error">Escolha a essência que te acompanhou e atribua uma nota.</p>}
           </div>
+          <div className="rating-field"><span className="field-label">Sua nota</span><div role="group" aria-label="Nota da fragrância">{[1, 2, 3, 4, 5].map((rating) => <button type="button" className={feedbackRating >= rating ? "active" : ""} aria-pressed={feedbackRating === rating} key={rating} onClick={() => { setFeedbackRating(rating); setFeedbackError(false); }}>{rating}</button>)}</div></div>
+          <label>Em qual ocasião ela te acompanhou?<input value={feedbackOccasion} onChange={(event) => setFeedbackOccasion(event.target.value)} required placeholder="Trabalho, encontro, dia a dia..." /></label>
           <label>O que ela disse sobre você?<textarea required placeholder="Uma impressão, uma memória, um momento..." rows={4} /></label>
           <div className="form-row"><label>Seu nome<input required placeholder="Como podemos te chamar?" /></label><label>Seu e-mail<input required type="email" placeholder="seu@email.com" /></label></div>
           <button className="button button-dark" type="submit">Enviar minha percepção <span>↗</span></button>{feedbackSent && <p className="form-success">Percepção registrada nesta demonstração. A integração de envio será ativada antes do lançamento.</p>}
