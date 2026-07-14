@@ -30,6 +30,9 @@ test("uses all quiz inputs and communicates prototype limits", async () => {
   assert.match(page, /Que direção olfativa mais te chama/);
   assert.match(page, /Kit confirmado/);
   assert.match(page, /Qual das sete/);
+  assert.match(page, /length: 10/);
+  assert.match(page, /03 · Curadoria pessoal/);
+  assert.match(page, /04 · Experiência AJA/);
   assert.match(page, /dados não são enviados nesta demonstração/);
   assert.match(page, /integração de envio será ativada antes do lançamento/);
 });
